@@ -3,24 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купить сигареты в Иркутске с доставкой | Smoke-Smoke</title>
-    <meta name="description" content="Доставка сигарет в Иркутске. Бесплатно от 5 блоков. Широкий ассортимент: Армения, Белоруссия, РФ, ОАЭ, Duty Free. Работаем 24/7.">
-    <meta name="keywords" content="сигареты Иркутск, доставка сигарет, купить сигареты, табак, Армения, Белоруссия, РФ, ОАЭ, Duty Free, Smoke-Smoke">
-    <meta name="author" content="Smoke-Smoke">
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="Smoke-Smoke – доставка сигарет в Иркутске">
-    <meta property="og:description" content="Бесплатная доставка от 5 блоков. Работаем круглосуточно. Большой выбор табака.">
-    <meta property="og:image" content="https://smoke-smoke.ru/images/photo_four.jpg">
-    <meta property="og:url" content="https://smoke-smoke.ru/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Smoke-Smoke">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Smoke-Smoke – доставка сигарет в Иркутске">
-    <meta name="twitter:description" content="Бесплатная доставка от 5 блоков. Работаем круглосуточно. Большой выбор табака.">
-    <meta name="twitter:image" content="https://smoke-smoke.ru/images/photo_four.jpg">
+    <title>Купить сигареты в Иркутске | Smoke-Smoke</title>
+    <meta name="description" content="Доставка сигарет в Иркутске. Бесплатно от 5 блоков. Telegram-канал с ассортиментом.">
 
+    <!-- SEO-микроразметка -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -39,25 +25,34 @@
     }
     </script>
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Preconnect для внешних ресурсов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
+    <!-- Предзагрузка критического изображения (hero) -->
     <link rel="preload" as="image" href="./images/photo_four.webp" fetchpriority="high">
+
+    <!-- Асинхронная загрузка полного CSS -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <!-- Google Fonts с display=swap (асинхронно) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"></noscript>
 
+    <!-- Font Awesome (асинхронно) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
+    <!-- Кэширование статики на клиенте -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
 </head>
 <body>
+    <!-- Overlay для мобильного меню -->
     <div class="overlay" id="overlay"></div>
+
+    <!-- Боковое меню (мобильное) -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar__header">
             <h2>Smoke-Smoke</h2>
@@ -80,6 +75,7 @@
             <div class="header__logo">
                 <h1>Smoke-Smoke</h1>
             </div>
+            <!-- Десктопная навигация -->
             <nav class="header__nav desktop-only">
                 <a href="#hero" class="header__nav-link">Главная</a>
                 <a href="#advantages" class="header__nav-link">Преимущества</a>
@@ -101,9 +97,10 @@
     </header>
 
     <main>
+        <!-- Hero секция -->
         <section id="hero" class="hero section-full">
             <div class="hero__background" id="parallax-bg">
-                <img src="./images/photo_four.webp" width="1200" height="800" alt="Сигареты на фоне города Иркутск" fetchpriority="high">
+                <img src="./images/photo_four.webp" alt="Сигареты" fetchpriority="high">
             </div>
             <div class="container hero__content">
                 <h2 class="hero__title">Доставка сигарет<br>в <span>Иркутске</span></h2>
@@ -118,6 +115,7 @@
             </div>
         </section>
 
+        <!-- Преимущества -->
         <section id="advantages" class="advantages section-full">
             <div class="advantages__sticky-wrapper">
                 <div class="container">
@@ -125,31 +123,36 @@
                 </div>
                 <div class="advantages__wrapper">
                     <div class="advantages__grid">
+                        <!-- Карточка 1: Бесплатная доставка (с фото) -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner one">
-                                <img src="./images/photo_five.webp" width="400" height="200" alt="Коробки с сигаретами" class="advantage-card__image" loading="lazy">
+                                <img src="./images/photo_five.webp" alt="Коробки" class="advantage-card__image" loading="lazy">
                                 <h3>Бесплатная доставка</h3>
                                 <p>при заказе от 5 блоков - доставка по городу 0₽</p>
                             </div>
                         </div>
+                        <!-- Карточка 2: Большой ассортимент -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner">
                                 <h3>Большой ассортимент</h3>
                                 <p>• Актуальное наличие<br>• Подбор под ваш вкус<br>• Выбор по крепости и формату</p>
                             </div>
                         </div>
+                        <!-- Карточка 3: Работаем 24/7 -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner"> 
                                 <h3>Работаем 24/7</h3>
                                 <p>Можно написать в любое время — подскажем наличие и удобный вариант получения</p>
                             </div>
                         </div>
+                        <!-- Карточка 4: Быстрая доставка -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner">
                                 <h3>Быстрая доставка</h3>
-                                <p>Без долгих ожиданий: быстро подтверждаем и доставляем</p>
+                                <p>Без долгих ожиданий: быстро подтверждаем и доставляем в согласованное время</p>
                             </div>
                         </div>
+                        <!-- Карточка 5: Безопасно для вас -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner">
                                 <h3>Безопасно для вас</h3>
@@ -161,32 +164,39 @@
             </div>
         </section>
 
+        <!-- Ассортимент (полный экран) -->
         <section id="assortment" class="assortment section-full">
             <div class="container">
                 <div class="hero__background">
-                    <img src="./images/photo_three.jpg" width="1200" height="800" alt="Разные пачки сигарет" loading="lazy">
+                    <img src="./images/photo_three.jpg" alt="Сигареты" loading="lazy">
                 </div>
                 <h2 class="section-title">Табак со всего мира</h2>
                 <div class="assortment__grid">
+                    <!-- Армения -->
                     <div class="brand-card glass-card">
-                        <img src="./images/armen_two.webp" width="240" height="220" alt="Армянские сигареты" class="brand-card__image" loading="lazy">
+                        <img src="./images/armen_two.webp" alt="Армения" class="brand-card__image" loading="lazy">
                         <h3>Армения</h3>
                     </div>
+                    <!-- Белоруссия -->
                     <div class="brand-card glass-card">
-                        <img src="./images/below_photo.png" width="240" height="220" alt="Белорусские сигареты" class="brand-card__image" loading="lazy">
+                        <img src="./images/below_photo.png" alt="Белоруссия" class="brand-card__image" loading="lazy">
                         <h3>Белоруссия</h3>
                     </div>
+                    <!-- РФ -->
                     <div class="brand-card glass-card">
-                        <img src="./images/rf_two.webp" width="240" height="220" alt="Российские сигареты" class="brand-card__image" loading="lazy">
+                        <img src="./images/rf_two.webp" alt="РФ" class="brand-card__image" loading="lazy">
                         <h3>РФ</h3>
                     </div>
+                    <!-- Разделитель для переноса на новую строку -->
                     <div class="assortment__break"></div>
+                    <!-- ОАЭ -->
                     <div class="brand-card glass-card">
-                        <img src="./images/oae_two.webp" width="240" height="220" alt="Сигареты из ОАЭ" class="brand-card__image" loading="lazy">
+                        <img src="./images/oae_two.webp" alt="ОАЭ" class="brand-card__image" loading="lazy">
                         <h3>ОАЭ</h3>
                     </div>
+                    <!-- Duty Free -->
                     <div class="brand-card glass-card1">
-                        <img src="./images/duti_two.webp" width="240" height="220" alt="Сигареты Duty Free" class="brand-card__image" loading="lazy">
+                        <img src="./images/duti_two.webp" alt="Duty Free" class="brand-card__image" loading="lazy">
                         <h3>Duty Free</h3>
                     </div>
                 </div>
@@ -198,6 +208,7 @@
             </div>
         </section>
 
+        <!-- Как заказать -->
         <section id="howto" class="howto section-full">
             <div class="container">
                 <h2 class="section-title">Как заказать</h2>
@@ -221,6 +232,7 @@
             </div>
         </section>
 
+        <!-- Контакты -->
         <section id="contacts" class="contacts section-full">
             <div class="container">
                 <h2 class="section-title">Контакты</h2>
@@ -233,7 +245,7 @@
                             <p><i class="fab fa-telegram-plane"></i> <a href="https://t.me/irk_smoke" target="_blank">@irk_smoke</a></p>
                         </div>
                         <div class="contacts__qr">
-                            <img src="./images/qr-code.webp" width="180" height="180" alt="QR-код Telegram" class="qr-code-image" loading="lazy">
+                            <img src="./images/qr-code.webp" alt="Telegram QR" class="qr-code-image" loading="lazy">
                             <p class="qr-hint">Наведите камеру, чтобы перейти</p>
                         </div>
                         <a href="https://t.me/irk_smoke" target="_blank" class="btn btn--primary btn--large">
@@ -251,6 +263,5 @@
         </div>
     </footer>
 
-    <script src="index.js" defer></script>
+    <script src="index.js"></script>
 </body>
-</html>
