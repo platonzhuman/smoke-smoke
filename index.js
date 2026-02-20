@@ -51,80 +51,95 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Параллакс для hero
+    // Оптимизированный параллакс с requestAnimationFrame
     const parallaxBg = document.getElementById('parallax-bg');
     if (parallaxBg) {
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const rate = scrolled * 0.3;
-            parallaxBg.style.transform = `translateY(${rate}px)`;
-        });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.scrollY;
+                    const rate = scrolled * 0.3;
+                    parallaxBg.style.transform = `translateY(${rate}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
 
-    // Горизонтальный скролл для преимуществ (только десктоп)
-    function initHorizontalAdvantages() {
-        const section = document.getElementById('advantages');
-        if (!section) return;
+    // Эффекты только для десктопа
+    if (window.innerWidth > 768) {
+        // Горизонтальный скролл для преимуществ
+        function initHorizontalAdvantages() {
+            const section = document.getElementById('advantages');
+            if (!section) return;
 
-        if (window.innerWidth < 769) return;
+            const wrapper = section.querySelector('.advantages__wrapper');
+            const grid = section.querySelector('.advantages__grid');
+            if (!wrapper || !grid) return;
 
-        const wrapper = section.querySelector('.advantages__wrapper');
-        const grid = section.querySelector('.advantages__grid');
-        if (!wrapper || !grid) return;
+            let maxScroll = 0;
 
-        let maxScroll = 0;
+            function setSectionHeight() {
+                const gridWidth = grid.scrollWidth;
+                const viewportWidth = window.innerWidth;
+                maxScroll = Math.max(0, gridWidth - viewportWidth);
+            }
 
-        function setSectionHeight() {
-            const gridWidth = grid.scrollWidth;
-            const viewportWidth = window.innerWidth;
-            maxScroll = Math.max(0, gridWidth - viewportWidth);
-           
-        }
+            function updateTransform() {
+                const start = section.offsetTop;
+                const scrollY = window.scrollY;
+                let progress = (scrollY - start) / maxScroll;
+                progress = Math.min(1, Math.max(0, progress));
+                const translateX = -progress * maxScroll;
+                grid.style.transform = `translateX(${translateX}px)`;
+            }
 
-        function updateTransform() {
-            const start = section.offsetTop;
-            const scrollY = window.scrollY;
-            let progress = (scrollY - start) / maxScroll;
-            progress = Math.min(1, Math.max(0, progress));
-            const translateX = -progress * maxScroll;
-            grid.style.transform = `translateX(${translateX}px)`;
-        }
-
-        setSectionHeight();
-        window.addEventListener('scroll', updateTransform);
-        window.addEventListener('resize', () => {
             setSectionHeight();
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateTransform();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+            window.addEventListener('resize', () => {
+                setSectionHeight();
+                updateTransform();
+            });
             updateTransform();
-        });
-        updateTransform();
-    }
+        }
 
-    // 3D tilt эффект для карточек преимуществ
-    function init3DTilt() {
-        const cards = document.querySelectorAll('.advantage-card');
-        if (!cards.length) return;
+        // 3D tilt эффект для карточек преимуществ
+        function init3DTilt() {
+            const cards = document.querySelectorAll('.advantage-card');
+            if (!cards.length) return;
 
-        cards.forEach(card => {
-            const inner = card.querySelector('.advantage-card__inner');
-            if (!inner) return;
+            cards.forEach(card => {
+                const inner = card.querySelector('.advantage-card__inner');
+                if (!inner) return;
 
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
-                const rotateX = (y - rect.height / 2) / 12;
-                const rotateY = (rect.width / 2 - x) / 12;
+                    const rotateX = (y - rect.height / 2) / 12;
+                    const rotateY = (rect.width / 2 - x) / 12;
 
-                inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    inner.style.transform = '';
+                });
             });
+        }
 
-            card.addEventListener('mouseleave', () => {
-                inner.style.transform = '';
-            });
-        });
+        initHorizontalAdvantages();
+        init3DTilt();
     }
-
-    initHorizontalAdvantages();
-    init3DTilt();
 });

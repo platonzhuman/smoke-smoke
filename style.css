@@ -1,5 +1,5 @@
 /* --------------------------------
-   Переменные и базовые сбросы
+   Переменные и базовые сбросы (уже в критическом, но оставим для целостности)
 -------------------------------- */
 * {
     margin: 0;
@@ -125,7 +125,7 @@ h1, h2, h3 {
 }
 
 /* --------------------------------
-   Шапка
+   Шапка (дублируется, но оставляем)
 -------------------------------- */
 .header {
     position: fixed;
@@ -217,43 +217,6 @@ h1, h2, h3 {
 
 .header__phone:hover {
     color: var(--gold);
-}
-
-/* Планшеты */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .header__inner {
-        padding: 10px 25px;
-    }
-    .header__nav {
-        gap: 20px;
-    }
-    .header__nav-link {
-        font-size: 0.85rem;
-    }
-    .header__phone span {
-        display: none;
-    }
-}
-
-/* Мобильные */
-@media (max-width: 768px) {
-    .header {
-        top: 10px;
-        width: calc(100% - 20px);
-        border-radius: 40px;
-    }
-    .header__inner {
-        padding: 10px 20px;
-    }
-    .header__logo h1 {
-        font-size: 1.3rem;
-    }
-    .desktop-only {
-        display: none !important;
-    }
-    .hamburger {
-        display: flex;
-    }
 }
 
 /* --------------------------------
@@ -382,7 +345,7 @@ h1, h2, h3 {
     padding: 100px 0;
 }
 
-/* Hero */
+/* Hero (уже в критическом, но оставляем) */
 .hero {
     position: relative;
     overflow: hidden;
@@ -665,6 +628,10 @@ h3{
 /* --------------------------------
    Ассортимент — карточки с изображениями пачек
 -------------------------------- */
+.assortment {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px; /* приблизительная высота секции */
+}
 .assortment__grid {
     display: flex;
     flex-wrap: wrap;
@@ -727,44 +694,13 @@ h3{
     text-align: center;
 }
 
-/* Планшеты */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .brand-card,
-    .brand-card1 {
-        flex: 0 0 280px;
-    }
-    .brand-card__image {
-        height: 200px;
-    }
-    .brand-card h3 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Мобильные */
-@media (max-width: 768px) {
-    .assortment__grid {
-        gap: 20px;
-    }
-    .brand-card,
-    .brand-card1 {
-        flex: 0 0 100%;
-        max-width: 400px;
-    }
-    .brand-card__image {
-        height: 180px;
-    }
-    .brand-card h3 {
-        font-size: 1.3rem;
-        margin: 15px 0 10px;
-    }
-}
-
 /* --------------------------------
    Как заказать
 -------------------------------- */
 .howto {
     background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
 }
 
 .howto__steps {
@@ -826,6 +762,8 @@ h3{
 -------------------------------- */
 .contacts {
     background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
 }
 
 .contacts__content {
@@ -1123,4 +1061,3 @@ h3{
     flex-basis: 100%;
     height: 0;
 }
-
