@@ -1,251 +1,485 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купить сигареты в Иркутске | Smoke-Smoke</title>
-    <meta name="description" content="Доставка сигарет в Иркутске. Бесплатно от 5 блоков. Telegram-канал с ассортиментом.">
-
-    <!-- SEO-микроразметка -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Smoke-Smoke",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Иркутск",
-            "streetAddress": "ул. Ленина, д. 1"
-        },
-        "telephone": "+7 (901) 663 86 13",
-        "openingHours": "Mo-Su 00:00-24:00",
-        "areaServed": "Иркутск",
-        "url": "https://smoke-smoke.ru/",
-        "sameAs": "https://t.me/irk_smoke"
-    }
-    </script>
-
-    <!-- Preconnect для внешних ресурсов -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Предзагрузка критического изображения (hero) -->
     <link rel="preload" as="image" href="./images/photo_four.webp" fetchpriority="high">
+    <!-- Предзагрузка hero-изображения с srcset (подставляем самый маленький вариант для предзагрузки) -->
+    <link rel="preload" as="image" href="./images/photo_four-480.webp" imagesrcset="./images/photo_four-480.webp 480w, ./images/photo_four-768.webp 768w, ./images/photo_four-1200.webp 1200w" imagesizes="100vw" fetchpriority="high">
+
+    <!-- Расширенный критический CSS (включает первый экран полностью) -->
+    <style>
+        /* --------------------------------
+           Базовый сброс и переменные
+        -------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg-dark: #0C0C0C;
+            --bg-darker: #050505;
+            --bg-card: rgba(20, 20, 20, 0.7);
+            --text-light: #EAEAEA;
+            --text-muted: #9A9A9A;
+            --gold: #C4A052;
+            --gold-dark: #9B843A;
+            --gold-glow: rgba(196, 160, 82, 0.15);
+            --border-light: rgba(255, 255, 255, 0.03);
+            --border-gold: rgba(196, 160, 82, 0.3);
+            --shadow-sm: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+            --shadow-hover: 0 30px 50px -20px #000;
+            --border-radius: 24px;
+            --transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            width: 100%;
+        }
+
+        /* --------------------------------
+           Шапка (фиксированная)
+        -------------------------------- */
+        .header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            padding: 0 20px;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1300px;
+            background: linear-gradient(145deg, rgba(10, 10, 10, 0.8) 0%, rgba(30, 30, 30, 0.9) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(196, 160, 82, 0.1) inset;
+            z-index: 100;
+        }
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+        }
+        .header__logo h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff, var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0;
+        }
+        .header__nav {
+            display: flex;
+            gap: 35px;
+        }
+        .header__nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+        }
+        .header__contacts {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .header__phone {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+        .hamburger__line {
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* --------------------------------
+           Hero секция
+        -------------------------------- */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            will-change: transform;
+        }
+        .hero__background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            filter: brightness(0.4) grayscale(0.8);
+        }
+        .hero__background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(73, 72, 72, 0.2) 50%, var(--bg-darker) 100%);
+            z-index: 1;
+        }
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+        }
+        .hero__title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+        .hero__title span {
+            color: var(--gold);
+            display: inline-block;
+            position: relative;
+        }
+        .hero__subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 34px;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn--primary {
+            background: var(--gold);
+            color: #0C0C0C;
+        }
+        .btn--large {
+            padding: 16px 48px;
+            font-size: 1.15rem;
+        }
+        .hero__scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* --------------------------------
+           Преимущества (первый экран – хотя бы заголовок и сетка)
+        -------------------------------- */
+        .advantages {
+            background: linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            padding: 100px 0;
+        }
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .advantages__grid {
+            display: grid;
+            grid-template-columns: 400px 300px;
+            grid-template-rows: 300px 300px 200px;
+            gap: 30px;
+            width: max-content;
+            margin: 0 auto;
+        }
+        .advantage-card {
+            width: 100%;
+            height: 100%;
+        }
+        .advantage-card:nth-child(1) {
+            grid-row: 1 / 3;
+            grid-column: 1 / 2;
+        }
+        .advantage-card:nth-child(2) {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+        }
+        .advantage-card:nth-child(3) {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+        }
+        .advantage-card:nth-child(4) {
+            grid-row: 3 / 4;
+            grid-column: 1 / 2;
+        }
+        .advantage-card:nth-child(5) {
+            grid-row: 3 / 4;
+            grid-column: 2 / 3;
+        }
+        .advantage-card__inner {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .advantage-card__inner h3 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        .advantage-card__inner p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 90%;
+        }
+        .advantage-card__image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 768px) {
+            .header {
+                top: 10px;
+                width: calc(100% - 20px);
+                border-radius: 40px;
+            }
+            .header__inner {
+                padding: 10px 20px;
+            }
+            .header__logo h1 {
+                font-size: 1.3rem;
+            }
+            .desktop-only {
+                display: none !important;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero__title {
+                font-size: clamp(2.5rem, 8vw, 4rem);
+            }
+            .hero__subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+            .hero__scroll {
+                display: none;
+            }
+            .advantages__grid {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 20px;
+            }
+            .advantage-card {
+                width: 100% !important;
+                height: auto !important;
+            }
+            .advantage-card__inner {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 
     <!-- Асинхронная загрузка полного CSS -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
-
-    <!-- Google Fonts с display=swap (асинхронно) -->
+@@ -41,11 +384,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"></noscript>
 
     <!-- Font Awesome (асинхронно) -->
+    <!-- Font Awesome (асинхронно) с явными размерами иконок в критическом CSS (добавим минимальную ширину) -->
+    <style>
+        /* Минимальные размеры для иконок, чтобы избежать смещения */
+        .fas, .fab, .far {
+            min-width: 1em;
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
 
     <!-- Кэширование статики на клиенте -->
+    <!-- Кэширование статики -->
     <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
 </head>
 <body>
-    <!-- Overlay для мобильного меню -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Боковое меню (мобильное) -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar__header">
-            <h2>Smoke-Smoke</h2>
-            <button class="sidebar__close" id="closeSidebar">&times;</button>
-        </div>
-        <nav class="sidebar__nav">
-            <a href="#hero" class="sidebar__link">Главная</a>
-            <a href="#advantages" class="sidebar__link">Преимущества</a>
-            <a href="#assortment" class="sidebar__link">Ассортимент</a>
-            <a href="#howto" class="sidebar__link">Как заказать</a>
-            <a href="#contacts" class="sidebar__link">Контакты</a>
-            <div class="sidebar__divider"></div>
-            <a href="tel:+79016638613" class="sidebar__link"><i class="fas fa-phone-alt"></i>+7 (901) 663 86 13</a>
-            <a href="https://t.me/irk_smoke" target="_blank" class="sidebar__link sidebar__link--tg"><i class="fab fa-telegram-plane"></i> Ассортимент в Telegram</a>
-        </nav>
-    </div>
-
-    <header class="header">
-        <div class="container header__inner">
-            <div class="header__logo">
-                <h1>Smoke-Smoke</h1>
-            </div>
-            <!-- Десктопная навигация -->
-            <nav class="header__nav desktop-only">
-                <a href="#hero" class="header__nav-link">Главная</a>
-                <a href="#advantages" class="header__nav-link">Преимущества</a>
-                <a href="#assortment" class="header__nav-link">Ассортимент</a>
-                <a href="#howto" class="header__nav-link">Как заказать</a>
-                <a href="#contacts" class="header__nav-link">Контакты</a>
-            </nav>
-            <div class="header__contacts desktop-only">
-                <a href="tel:+79016638613" class="header__phone">
-                    <i class="fas fa-phone-alt"></i> <span>+7 (901) 663 86 13</span>
-                </a>
-            </div>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Меню">
-                <span class="hamburger__line"></span>
-                <span class="hamburger__line"></span>
-                <span class="hamburger__line"></span>
-            </button>
-        </div>
-    </header>
-
-    <main>
+@@ -100,7 +451,13 @@
         <!-- Hero секция -->
         <section id="hero" class="hero section-full">
             <div class="hero__background" id="parallax-bg">
-                <img src="./images/photo_four.webp" alt="Сигареты" fetchpriority="high">
+                <!-- Добавлены width, height и srcset для адаптивности -->
+                <img src="./images/photo_four-480.webp"
+                     srcset="./images/photo_four-480.webp 480w, ./images/photo_four-768.webp 768w, ./images/photo_four-1200.webp 1200w"
+                     sizes="100vw"
+                     width="1200" height="800"
+                     alt="Сигареты"
+                     fetchpriority="high">
             </div>
             <div class="container hero__content">
                 <h2 class="hero__title">Доставка сигарет<br>в <span>Иркутске</span></h2>
-                <p class="hero__subtitle">Бесплатно от 5 блоков. Работаем 24/7.</p>
-                <a href="https://t.me/irk_smoke" target="_blank" class="btn btn--primary btn--large">
-                    <i class="fab fa-telegram-plane"></i> Перейти в Telegram
-                </a>
-            </div>
-            <div class="hero__scroll">
-                <span>Листайте вниз</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </section>
-
-        <!-- Преимущества -->
-        <section id="advantages" class="advantages section-full">
-            <div class="advantages__sticky-wrapper">
-                <div class="container">
-                    <h2 class="section-title">Преимущества</h2>
-                </div>
-                <div class="advantages__wrapper">
-                    <div class="advantages__grid">
+@@ -126,7 +483,11 @@
                         <!-- Карточка 1: Бесплатная доставка (с фото) -->
                         <div class="advantage-card">
                             <div class="advantage-card__inner one">
-                                <img src="./images/photo_five.webp" alt="Коробки" class="advantage-card__image" loading="lazy">
+                           
+                                <img src="./images/photo_five.webp"
+                                     width="400" height="200"
+                                     alt="Коробки"
+                                     class="advantage-card__image"
+                                     loading="lazy">
                                 <h3>Бесплатная доставка</h3>
                                 <p>при заказе от 5 блоков - доставка по городу 0₽</p>
                             </div>
-                        </div>
-                        <!-- Карточка 2: Большой ассортимент -->
-                        <div class="advantage-card">
-                            <div class="advantage-card__inner">
-                                <h3>Большой ассортимент</h3>
-                                <p>• Актуальное наличие<br>• Подбор под ваш вкус<br>• Выбор по крепости и формату</p>
-                            </div>
-                        </div>
-                        <!-- Карточка 3: Работаем 24/7 -->
-                        <div class="advantage-card">
-                            <div class="advantage-card__inner"> 
-                                <h3>Работаем 24/7</h3>
-                                <p>Можно написать в любое время — подскажем наличие и удобный вариант получения</p>
-                            </div>
-                        </div>
-                        <!-- Карточка 4: Быстрая доставка -->
-                        <div class="advantage-card">
-                            <div class="advantage-card__inner">
-                                <h3>Быстрая доставка</h3>
-                                <p>Без долгих ожиданий: быстро подтверждаем и доставляем в согласованное время</p>
-                            </div>
-                        </div>
-                        <!-- Карточка 5: Безопасно для вас -->
-                        <div class="advantage-card">
-                            <div class="advantage-card__inner">
-                                <h3>Безопасно для вас</h3>
-                                <p>Оплата при получении: вы видите товар и только после этого оплачиваете</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+@@ -164,39 +525,62 @@
             </div>
         </section>
 
         <!-- Ассортимент (полный экран) -->
+        <!-- Ассортимент -->
         <section id="assortment" class="assortment section-full">
             <div class="container">
                 <div class="hero__background">
-                    <img src="./images/photo_three.jpg" alt="Сигареты" loading="lazy">
+                 
+                    <img src="./images/photo_three.jpg"
+                         width="1200" height="800"
+                         alt="Сигареты"
+                         loading="lazy">
                 </div>
                 <h2 class="section-title">Табак со всего мира</h2>
                 <div class="assortment__grid">
                     <!-- Армения -->
                     <div class="brand-card glass-card">
-                        <img src="./images/armen_two.webp" alt="Армения" class="brand-card__image" loading="lazy">
+                    
+                        <img src="./images/armen_two.webp"
+                             width="240" height="220"
+                             alt="Армения"
+                             class="brand-card__image"
+                             loading="lazy">
                         <h3>Армения</h3>
                     </div>
                     <!-- Белоруссия -->
                     <div class="brand-card glass-card">
-                        <img src="./images/below_photo.png" alt="Белоруссия" class="brand-card__image" loading="lazy">
+                      
+                        <img src="./images/below_photo.png"
+                             width="240" height="220"
+                             alt="Белоруссия"
+                             class="brand-card__image"
+                             loading="lazy">
                         <h3>Белоруссия</h3>
                     </div>
                     <!-- РФ -->
                     <div class="brand-card glass-card">
-                        <img src="./images/rf_two.webp" alt="РФ" class="brand-card__image" loading="lazy">
+                   
+                        <img src="./images/rf_two.webp"
+                             width="240" height="220"
+                             alt="РФ"
+                             class="brand-card__image"
+                             loading="lazy">
                         <h3>РФ</h3>
                     </div>
                     <!-- Разделитель для переноса на новую строку -->
+                    <!-- Разделитель -->
                     <div class="assortment__break"></div>
                     <!-- ОАЭ -->
                     <div class="brand-card glass-card">
-                        <img src="./images/oae_two.webp" alt="ОАЭ" class="brand-card__image" loading="lazy">
+                  
+                        <img src="./images/oae_two.webp"
+                             width="240" height="220"
+                             alt="ОАЭ"
+                             class="brand-card__image"
+                             loading="lazy">
                         <h3>ОАЭ</h3>
                     </div>
                     <!-- Duty Free -->
                     <div class="brand-card glass-card1">
-                        <img src="./images/duti_two.webp" alt="Duty Free" class="brand-card__image" loading="lazy">
+                       
+                        <img src="./images/duti_two.webp"
+                             width="240" height="220"
+                             alt="Duty Free"
+                             class="brand-card__image"
+                             loading="lazy">
                         <h3>Duty Free</h3>
                     </div>
                 </div>
-                <div class="assortment__action">
-                    <a href="https://t.me/irk_smoke" target="_blank" class="btn btn--primary btn--large">
-                        <i class="fab fa-telegram-plane"></i> Смотреть всё в Telegram
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Как заказать -->
-        <section id="howto" class="howto section-full">
-            <div class="container">
-                <h2 class="section-title">Как заказать</h2>
-                <div class="howto__steps">
-                    <div class="step glass-card">
-                        <div class="step__icon"><i class="fab fa-telegram-plane"></i></div>
-                        <h3>Шаг 1</h3>
-                        <p>Перейдите в наш Telegram</p>
-                    </div>
-                    <div class="step glass-card">
-                        <div class="step__icon"><i class="fas fa-list"></i></div>
-                        <h3>Шаг 2</h3>
-                        <p>Выберите нужные товары</p>
-                    </div>
-                    <div class="step glass-card">
-                        <div class="step__icon"><i class="fas fa-check-circle"></i></div>
-                        <h3>Шаг 3</h3>
-                        <p>Подтвердите заказ</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Контакты -->
-        <section id="contacts" class="contacts section-full">
-            <div class="container">
-                <h2 class="section-title">Контакты</h2>
-                <div class="contacts__content">
-                    <div class="contacts__info glass-card">
-                        <div class="contacts__details">
-                            <h3><i class="fas fa-store"></i> Smoke-Smoke</h3>
-                            <p><i class="fas fa-clock"></i> Круглосуточно, без выходных</p>
-                            <p><i class="fas fa-phone-alt"></i> <a href="tel:+79016638613">+7 (901) 663 86 13</a></p>
+@@ -245,23 +629,27 @@
                             <p><i class="fab fa-telegram-plane"></i> <a href="https://t.me/irk_smoke" target="_blank">@irk_smoke</a></p>
                         </div>
                         <div class="contacts__qr">
-                            <img src="./images/qr-code.webp" alt="Telegram QR" class="qr-code-image" loading="lazy">
+                            <img src="./images/qr-code.webp"
+                                 width="180" height="180"
+                                 alt="Telegram QR"
+                                 class="qr-code-image"
+                                 loading="lazy">
                             <p class="qr-hint">Наведите камеру, чтобы перейти</p>
                         </div>
                         <a href="https://t.me/irk_smoke" target="_blank" class="btn btn--primary btn--large">
