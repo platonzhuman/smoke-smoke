@@ -607,7 +607,14 @@ h1, h2, h3 {
     margin-left: auto;
     margin-right: auto;
 }
-
+h3{
+        font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.01em;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
 /* Для карточек 4 и 5 (быстрая доставка и безопасность) делаем описание чуть меньше */
 .advantage-card:nth-child(4) .advantage-card__inner p,
 .advantage-card:nth-child(5) .advantage-card__inner p {
