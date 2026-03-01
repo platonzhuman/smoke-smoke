@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Купить сигареты в Иркутске с доставкой | Smoke-Smoke</title>
-    <meta name="description" content="Доставка сигарет в Иркутске. Бесплатно от 5 блоков. Широкий ассортимент: Армения, Белоруссия, РФ, ОАЭ, Duty Free. Работаем 24/7.">
-    <meta name="keywords" content="сигареты Иркутск, доставка сигарет, купить сигареты, табак, Армения, Белоруссия, РФ, ОАЭ, Duty Free, Smoke-Smoke">
+    <title>Купить сигареты в Иркутске | Доставка 24/7 | Smoke-Smoke</title>
+    
+    <!-- SEO мета-теги (приоритет общих запросов) -->
+    <meta name="description" content="Купить сигареты в Иркутске с доставкой на дом. Бесплатно от 5 блоков. Широкий ассортимент: Армения, Белоруссия, РФ, ОАЭ, Duty Free. Круглосуточная доставка.">
+    <meta name="keywords" content="купить сигареты Иркутск, сигареты Иркутск, купить сигареты, доставка сигарет Иркутск, табак Иркутск, армянские сигареты, белорусские сигареты, сигареты из ОАЭ, Duty Free, Smoke-Smoke, заказать сигареты, сигареты на дом Иркутск, сигареты с доставкой">
     <meta name="author" content="Smoke-Smoke">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Smoke-Smoke – доставка сигарет в Иркутске">
-    <meta property="og:description" content="Бесплатная доставка от 5 блоков. Работаем круглосуточно. Большой выбор табака.">
+
+    <!-- Гео-метки для локального SEO -->
+    <meta name="geo.region" content="RU-IRK">
+    <meta name="geo.placename" content="Иркутск">
+    <meta name="geo.position" content="52.286974;104.305018">
+    <meta name="ICBM" content="52.286974, 104.305018">
+
+    <!-- Каноническая ссылка -->
+    <link rel="canonical" href="https://smokesmoke.ru/">
+
+    <!-- Open Graph (общие запросы в начале) -->
+    <meta property="og:title" content="Купить сигареты в Иркутске | Smoke-Smoke">
+    <meta property="og:description" content="Купить сигареты в Иркутске с бесплатной доставкой от 5 блоков. Работаем круглосуточно. Широкий выбор: Армения, Белоруссия, РФ, ОАЭ, Duty Free.">
     <meta property="og:image" content="https://smokesmoke.ru/images/photo_four.webp">
     <meta property="og:url" content="https://smokesmoke.ru/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Smoke-Smoke">
-    
+    <meta property="og:locale" content="ru_RU">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Smoke-Smoke – доставка сигарет в Иркутске">
-    <meta name="twitter:description" content="Бесплатная доставка от 5 блоков. Работаем круглосуточно. Большой выбор табака.">
+    <meta name="twitter:title" content="Купить сигареты в Иркутске | Smoke-Smoke">
+    <meta name="twitter:description" content="Купить сигареты в Иркутске с бесплатной доставкой от 5 блоков. Работаем 24/7.">
     <meta name="twitter:image" content="https://smokesmoke.ru/images/photo_four.webp">
 
     <!-- Микроразметка LocalBusiness -->
@@ -28,7 +40,9 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Smoke-Smoke",
+        "name": "Smoke-Smoke – купить сигареты в Иркутске",
+        "description": "Круглосуточная доставка сигарет в Иркутске. Бесплатно от 5 блоков. Широкий ассортимент импортных сигарет.",
+        "image": "https://smokesmoke.ru/images/photo_four.webp",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Иркутск",
@@ -37,13 +51,19 @@
         "telephone": "+7 (901) 663 86 13",
         "openingHours": "Mo-Su 00:00-24:00",
         "areaServed": "Иркутск",
+        "priceRange": "₽-₽₽",
         "url": "https://smokesmoke.ru/",
         "sameAs": "https://t.me/irk_smoke"
     }
     </script>
 
-    <!-- Favicon -->
+    <!-- Favicon – основной -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Дополнительные форматы для разных устройств и поисковиков (рекомендуется добавить файлы .png в корень) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <!-- Если файлы отсутствуют, можно использовать один favicon.ico, но для лучшей совместимости рекомендуем создать png-версии. -->
 
     <!-- Preconnect для внешних ресурсов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,13 +104,16 @@
     <link rel="preload" href="style.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css?v=2"></noscript>
 
-    <!-- Google Fonts (синхронно) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap">
+    <!-- Google Fonts (асинхронно для ускорения LCP) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"></noscript>
 
-    <!-- Font Awesome (синхронно, с версией) -->
+    <!-- Font Awesome (синхронно, но с резервированием места) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Предзагрузка hero-изображения -->
+    <!-- Предзагрузка hero-изображения (адаптив) -->
     <link rel="preload" as="image" href="./images/photo_four.webp" fetchpriority="high">
     <link rel="preload" as="image" href="./images/photo_four_mobile.webp" media="(max-width: 768px)" fetchpriority="high">
 </head>
@@ -143,7 +166,11 @@
         <!-- Hero -->
         <section id="hero" class="hero section-full">
             <div class="hero__background" id="parallax-bg">
-                <img src="./images/photo_four.webp" width="1200" height="800" alt="Сигареты на фоне города Иркутск" fetchpriority="high">
+                <!-- адаптивное изображение через picture (добавлено) -->
+                <picture>
+                    <source srcset="./images/photo_four_mobile.webp" media="(max-width: 768px)">
+                    <img src="./images/photo_four.webp" width="1200" height="800" alt="Сигареты на фоне города Иркутск" fetchpriority="high">
+                </picture>
             </div>
             <div class="container hero__content">
                 <h2 class="hero__title">Доставка сигарет<br>в <span>Иркутске</span></h2>
@@ -294,6 +321,11 @@
             <p>@info-market -><a href="https://t.me/info_market38" target="_blank">Telegram</a></p>
         </div>
     </footer>
+
+    <!-- Скрытый блок с дополнительными ключевыми словами (для поисковиков) -->
+    <div class="seo-keywords" style="position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; white-space: nowrap;">
+        купить сигареты в Иркутске, доставка сигарет Иркутск, сигареты на дом Иркутск, заказать сигареты с доставкой, табак Иркутск, армянские сигареты Иркутск, белорусские сигареты Иркутск, сигареты из ОАЭ Иркутск, сигареты Duty Free Иркутск, Smoke-Smoke, магазин сигарет Иркутск, сигареты круглосуточно, бесплатная доставка сигарет, сигареты оптом Иркутск, сигареты в розницу Иркутск, где купить сигареты в Иркутске, сигареты с доставкой на дом, доставка табака Иркутск, купить табак для самокруток, сигареты премиум класс, импортные сигареты Иркутск, сигареты из Армении, сигареты из Белоруссии, российские сигареты, сигареты ОАЭ, парламент Иркутск, винстон Иркутск, кент Иркутск, марльборо Иркутск, капитан блэк, lucky strike, camel, chesterfield, bond, pall mall, davidoff, gauloises, silk cut, rothmans, west, lm, alliance, petrovich, maksim, troika, прима, беломорканал, сигареты пачками, сигареты блоками, доставка 24 часа, работаем без выходных, оплата при получении, быстрая доставка, заказ сигарет онлайн.
+    </div>
 
     <script src="index.js" defer></script>
 </body>
