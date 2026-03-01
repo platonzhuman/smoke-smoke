@@ -42,7 +42,7 @@
     }
     </script>
 
-    <!-- Favicon в корне -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <!-- Preconnect для внешних ресурсов -->
@@ -84,16 +84,15 @@
     <link rel="preload" href="style.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css?v=2"></noscript>
 
-    <!-- Google Fonts (асинхронно) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"></noscript>
+    <!-- Google Fonts (синхронно) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap">
 
-    <!-- Font Awesome (синхронно, с версией) – можно оставить, иконки нужны сразу -->
+    <!-- Font Awesome (синхронно, с версией) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Предзагрузка hero-изображения (десктоп и мобила) -->
+    <!-- Предзагрузка hero-изображения -->
     <link rel="preload" as="image" href="./images/photo_four.webp" fetchpriority="high">
-    <link rel="preload" as="image" href="./images/photo_four_1.webp" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="./images/photo_four_mobile.webp" media="(max-width: 768px)" fetchpriority="high">
 </head>
 <body>
     <!-- Оверлей и боковое меню (без изменений) -->
@@ -144,10 +143,7 @@
         <!-- Hero -->
         <section id="hero" class="hero section-full">
             <div class="hero__background" id="parallax-bg">
-                <picture>
-                    <source srcset="./images/photo_four_1.webp" media="(max-width: 768px)">
-                    <img src="./images/photo_four.webp" width="1200" height="800" alt="Сигареты на фоне города Иркутск" fetchpriority="high">
-                </picture>
+                <img src="./images/photo_four.webp" width="1200" height="800" alt="Сигареты на фоне города Иркутск" fetchpriority="high">
             </div>
             <div class="container hero__content">
                 <h2 class="hero__title">Доставка сигарет<br>в <span>Иркутске</span></h2>
@@ -215,54 +211,24 @@
                 <h2 class="section-title">Табак со всего мира</h2>
                 <div class="assortment__grid">
                     <div class="brand-card">
-                        <img src="./images/armen_two.webp" 
-                             srcset="./images/armen_two_1.webp 240w, ./images/armen_two.webp 1000w"
-                             sizes="(max-width: 768px) 240px, 240px"
-                             width="240" height="220" 
-                             alt="Армянские сигареты" 
-                             class="brand-card__image" 
-                             loading="lazy">
+                        <img src="./images/armen_two.webp" width="240" height="220" alt="Армянские сигареты" class="brand-card__image" loading="lazy">
                         <h3>Армения</h3>
                     </div>
                     <div class="brand-card">
-                        <img src="./images/below_photo.webp" 
-                             srcset="./images/below_photo_1.webp 240w, ./images/below_photo.webp 1000w"
-                             sizes="(max-width: 768px) 240px, 240px"
-                             width="240" height="220" 
-                             alt="Белорусские сигареты" 
-                             class="brand-card__image" 
-                             loading="lazy">
+                        <img src="./images/below_photo.webp" width="240" height="220" alt="Белорусские сигареты" class="brand-card__image" loading="lazy">
                         <h3>Белоруссия</h3>
                     </div>
                     <div class="brand-card">
-                        <img src="./images/rf_two.webp" 
-                             srcset="./images/rf_two_1.webp 240w, ./images/rf_two.webp 1000w"
-                             sizes="(max-width: 768px) 240px, 240px"
-                             width="240" height="220" 
-                             alt="Российские сигареты" 
-                             class="brand-card__image" 
-                             loading="lazy">
+                        <img src="./images/rf_two.webp" width="240" height="220" alt="Российские сигареты" class="brand-card__image" loading="lazy">
                         <h3>РФ</h3>
                     </div>
                     <div class="assortment__break"></div>
                     <div class="brand-card">
-                        <img src="./images/oae_two.webp" 
-                             srcset="./images/oae_two_1.webp 240w, ./images/oae_two.webp 1000w"
-                             sizes="(max-width: 768px) 240px, 240px"
-                             width="240" height="220" 
-                             alt="Сигареты из ОАЭ" 
-                             class="brand-card__image" 
-                             loading="lazy">
+                        <img src="./images/oae_two.webp" width="240" height="220" alt="Сигареты из ОАЭ" class="brand-card__image" loading="lazy">
                         <h3>ОАЭ</h3>
                     </div>
                     <div class="brand-card brand-card--duty">
-                        <img src="./images/duti_two.webp" 
-                             srcset="./images/duti_two_1.webp 240w, ./images/duti_two.webp 1000w"
-                             sizes="(max-width: 768px) 240px, 240px"
-                             width="240" height="220" 
-                             alt="Сигареты Duty Free" 
-                             class="brand-card__image" 
-                             loading="lazy">
+                        <img src="./images/duti_two.webp" width="240" height="220" alt="Сигареты Duty Free" class="brand-card__image" loading="lazy">
                         <h3>Duty Free</h3>
                     </div>
                 </div>
