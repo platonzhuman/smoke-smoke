@@ -1,5 +1,5 @@
 /* --------------------------------
-   Переменные и базовые сбросы
+   Полная таблица стилей (версия 2)
 -------------------------------- */
 * {
     margin: 0;
@@ -30,7 +30,6 @@ body {
     color: var(--text-light);
     line-height: 1.5;
     overflow-x: hidden;
-    /* Защита от скачков при загрузке шрифтов */
     font-display: swap;
 }
 
@@ -71,7 +70,7 @@ h1, h2, h3 {
 }
 
 /* --------------------------------
-   Кнопки
+   Кнопки (без изменений)
 -------------------------------- */
 .btn {
     display: inline-flex;
@@ -127,7 +126,7 @@ h1, h2, h3 {
 }
 
 /* --------------------------------
-   Шапка
+   Шапка (критические стили уже в head)
 -------------------------------- */
 .header {
     position: fixed;
@@ -347,7 +346,7 @@ h1, h2, h3 {
     padding: 100px 0;
 }
 
-/* Hero */
+/* Hero (стили уже в head, здесь только дополнения) */
 .hero {
     position: relative;
     overflow: hidden;
@@ -387,7 +386,6 @@ h1, h2, h3 {
     z-index: 2;
     text-align: center;
     max-width: 1000px;
-    /* Фиксируем высоту, чтобы избежать смещения при загрузке шрифтов */
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -497,7 +495,6 @@ h1, h2, h3 {
     height: 100%;
 }
 
-/* Распределение карточек */
 .advantage-card:nth-child(1) {
     grid-row: 1 / 3;
     grid-column: 1 / 2;
@@ -576,14 +573,12 @@ h1, h2, h3 {
     margin-right: auto;
 }
 
-/* Для карточек 4 и 5 (быстрая доставка и безопасность) делаем описание чуть меньше */
 .advantage-card:nth-child(4) .advantage-card__inner p,
 .advantage-card:nth-child(5) .advantage-card__inner p {
     font-size: 0.85rem;
     line-height: 1.3;
 }
 
-/* Изображение в первой карточке */
 .advantage-card__image {
     width: 100%;
     height: auto;
@@ -597,7 +592,6 @@ h1, h2, h3 {
                 linear-gradient(135deg, var(--gold), transparent) border-box;
     transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
     filter: brightness(0.9) contrast(1.1);
-    /* Явное соотношение сторон */
     aspect-ratio: 400 / 200;
 }
 
@@ -650,7 +644,6 @@ h1, h2, h3 {
     transition: var(--transition);
     text-align: center;
     position: relative;
-    /* Минимальная высота для резервирования места */
     min-height: 280px;
 }
 
@@ -674,7 +667,6 @@ h1, h2, h3 {
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
     transition: transform 0.3s ease, filter 0.3s ease;
     border-bottom: 2px solid var(--border-gold);
-    /* Явное соотношение сторон */
     aspect-ratio: 240 / 220;
 }
 
@@ -716,7 +708,6 @@ h1, h2, h3 {
     padding: 40px 20px;
     text-align: center;
     transition: var(--transition);
-    /* Минимальная высота */
     min-height: 250px;
     display: flex;
     flex-direction: column;
@@ -804,7 +795,9 @@ h1, h2, h3 {
 
 .contacts__details h3 i {
     font-size: 2rem;
-    min-width: 2rem; /* резервируем место под иконку */
+    min-width: 2rem;
+    display: inline-block;
+    text-align: center;
 }
 
 .contacts__details p {
@@ -820,7 +813,8 @@ h1, h2, h3 {
     color: var(--gold);
     width: 24px;
     font-size: 1.2rem;
-    min-width: 24px; /* резервируем место */
+    min-width: 24px;
+    display: inline-block;
     text-align: center;
 }
 
@@ -849,7 +843,7 @@ h1, h2, h3 {
     background: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 15px;
-    aspect-ratio: 1 / 1; /* квадрат */
+    aspect-ratio: 1 / 1;
 }
 
 .qr-code-image:hover {
@@ -972,7 +966,7 @@ h1, h2, h3 {
         padding: 0;
     }
     .hero__content {
-        min-height: 250px; /* адаптив */
+        min-height: 250px;
     }
     .hero__title {
         font-size: clamp(2.5rem, 8vw, 4rem);
@@ -1029,7 +1023,7 @@ h1, h2, h3 {
         object-fit: cover;
         border-radius: 16px;
         margin-bottom: 20px;
-        aspect-ratio: 400 / 200; /* сохраняем */
+        aspect-ratio: 400 / 200;
     }
     .howto__steps {
         grid-template-columns: 1fr;
@@ -1068,7 +1062,6 @@ h1, h2, h3 {
     }
 }
 
-/* Разделитель для принудительного переноса строки в ассортименте */
 .assortment__break {
     flex-basis: 100%;
     height: 0;

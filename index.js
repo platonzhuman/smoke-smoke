@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Эффекты только для десктопа (ширина > 768px)
+    // Эффекты только для десктопа
     if (!isMobile) {
         // Горизонтальный скролл для преимуществ
         const section = document.getElementById('advantages');
